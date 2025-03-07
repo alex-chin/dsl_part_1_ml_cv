@@ -15,7 +15,7 @@
 Занятие ведёт Юрий Яровиков.
 
 ### Семинар
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DeepLearningSchool/part_1_ml_cv/blob/main/week_03_composition_model_selection/Practice/model_selection%26ensembles.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DeepLearningSchool/part_1_ml_cv/blob/main/week_03_composition_model_selection/Practice/model_selection_ensembles.ipynb)
 
 В этом семинаре вы узнаете о том, как создаются модели машинного обучения для решения настоящих задач.
 
