@@ -5,13 +5,13 @@
 </div>
 
 
-Materials of the first part of Deep Learning School course (ML + CV)
+Материалы первого курса Deep Learning School (DLS) (ML + CV)
 
-- [**Our website**](https://dls.samcs.ru/)
+- [**Наш сайт**](https://dls.samcs.ru/)
 
-- [**Our telegram channel**](t.me/deep_learning_school_news)
+- [**Наш телеграм канал**](t.me/deep_learning_school_news)
 
-## Main content
+## Основные материалы
 
 1. [Введение в ML, анализ данных и библиотеку Sklearn](./week_01_ml_intro/README.md)
 
