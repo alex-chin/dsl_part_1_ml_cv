@@ -10,16 +10,21 @@
 ### Лекция
 В данной лекции вам предстоит познакомиться с задачей детекции и нейросетевыми методами её решения.
 
-Занятие ведёт Илья Захаркин.
+Занятие ведёт Антон.
 
 ### Семинар
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DeepLearningSchool/part_1_ml_cv/blob/main/week_09_detection/Practice/part_1_nvidia_ssd_tutorial.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DeepLearningSchool/part_1_ml_cv/blob/main/week_09_detection/Practice/formats_and_libraries_for_detection.ipynb)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DeepLearningSchool/part_1_ml_cv/blob/main/week_09_detection/Practice/part_2_mmdetection_tutorial.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DeepLearningSchool/part_1_ml_cv/blob/main/week_09_detection/Practice/detector_from_scratch.ipynb)
 
+Занятие ведёт Антон.
 
 В данном семианре вы на практике рассмотрите решение задачи детекции. 
 
-Занятие ведёт Илья Захаркин
+### Домашнее задание
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DeepLearningSchool/part_1_ml_cv/blob/main/week_09_detection/Homework/homework_detection.ipynb)
+
+
 
 
