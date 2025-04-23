@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Dict
 
 class DecoupledHead(nn.Module):
     """ Decoupled Head from YOLOX.
@@ -55,17 +54,14 @@ class DecoupledHead(nn.Module):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
 
-    def forward(self, x: Dict[str, torch.Tensor]) -> tuple:
+    def forward(self, x):
         """
         Args:
-            x: Dictionary of feature maps from FPN
+            x: Feature tensor from FPN
         Returns:
             tuple: (cls_logits, bbox_preds)
         """
-        # Take the first feature map from FPN (P0)
-        features = x['P0']
-        
-        x = self.shared_conv(features)
+        x = self.shared_conv(x)
         cls_logits = self.cls_branch(x)
         bbox_preds = self.reg_branch(x)
         return cls_logits, bbox_preds 
