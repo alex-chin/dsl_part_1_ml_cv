@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Union
 
 class FPN(nn.Module):
     """
@@ -26,7 +26,7 @@ class FPN(nn.Module):
         self.output_conv = nn.Conv2d(
             out_channels, out_channels, kernel_size=3, stride=1, padding=1
         )
-        
+            
         # Initialize weights
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -36,13 +36,18 @@ class FPN(nn.Module):
                     
         self.extra_blocks = extra_blocks
 
-    def forward(self, features: List[torch.Tensor]) -> Dict[str, torch.Tensor]:
+    def forward(self, features: Union[List[torch.Tensor], Dict[str, torch.Tensor]]) -> Dict[str, torch.Tensor]:
         """
         Args:
-            features: List of feature maps from backbone, ordered from highest to lowest resolution
+            features: Either a list of feature maps from backbone, ordered from highest to lowest resolution,
+                     or a dictionary of feature maps with keys indicating their resolution level
         Returns:
             Dict[str, torch.Tensor]: Dictionary of feature maps with different scales
         """
+        # Convert dictionary to list if needed
+        if isinstance(features, dict):
+            features = [features[f] for f in sorted(features.keys())]
+            
         # Process features from backbone
         laterals = []
         for feature in features:
