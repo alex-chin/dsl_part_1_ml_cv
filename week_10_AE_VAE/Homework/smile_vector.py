@@ -34,9 +34,18 @@ def get_smile_vectors(model, images, attrs, device='cuda' if torch.cuda.is_avail
     model.eval()
     with torch.no_grad():
         # Для улыбающихся
-        _, smiling_latent = model(smiling_images)
+        output_smiling = model(smiling_images)
+        if isinstance(output_smiling, tuple):
+            _, smiling_latent = output_smiling
+        else:
+            smiling_latent = output_smiling
+            
         # Для не улыбающихся
-        _, non_smiling_latent = model(non_smiling_images)
+        output_non_smiling = model(non_smiling_images)
+        if isinstance(output_non_smiling, tuple):
+            _, non_smiling_latent = output_non_smiling
+        else:
+            non_smiling_latent = output_non_smiling
     
     # 3. Вычисляем средние векторы и их разность
     mean_smiling = torch.mean(smiling_latent, dim=0)
@@ -68,11 +77,18 @@ def add_smile(model, image, smile_vector, alpha=1.0, device='cuda' if torch.cuda
     # Получаем латентный вектор изображения
     model.eval()
     with torch.no_grad():
-        _, latent = model(image_tensor)
+        # Получаем выход модели
+        output = model(image_tensor)
+        # Проверяем, вернула ли модель кортеж или один тензор
+        if isinstance(output, tuple):
+            _, latent = output
+        else:
+            latent = output
+            
         # Добавляем вектор улыбки
         new_latent = latent + alpha * smile_vector
         # Декодируем обратно в изображение
-        generated_image, _ = model.decoder(new_latent)
+        generated_image = model.decoder(new_latent)
     
     # Преобразуем обратно в numpy array и меняем порядок размерностей обратно CHW -> HWC
     result = generated_image.cpu().squeeze(0).permute(1, 2, 0).numpy()
